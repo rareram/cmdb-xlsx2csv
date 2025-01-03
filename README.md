@@ -1,5 +1,10 @@
 # cmdb-xlsx2csv
 
+## UI
+
+![cmdb-xlsx2csv-1](https://github.com/user-attachments/assets/c57ed28a-70b1-4235-aed6-2e57996a70ff)
+![cmdb-xlsx2csv-2](https://github.com/user-attachments/assets/276d2094-f3f0-4295-b9fd-730fabd7d8cb)
+
 ## Feature
 
 - 다운로드 받은 구성관리조회 엑셀파일의 제목인 1행부터 2행까지 삭제 (A열부터 CP열까지 병합된 상태) 기능
