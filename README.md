@@ -15,15 +15,32 @@
   - 모든 데이터를 문자열로 변환
   - non-breaking space를 일반 공백으로 변환
   - 모든 종류의 공백문자를 일반 공백으로 변환
-  - 셀 내 줄바꿈 (Alt+Enter) 제거
+  - 셀 내 줄바꿈 (Alt+Enter) 제기
   - 특수문자 제거 또는 변환
 
 ## How to Build
 
+```sh
+pip install PySide6 pandas
+```
+
+- 윈도우에서 단일실행 파일 만들기
 - upx https://github.com/upx/upx/releases
 
 ```sh
-$ pip install pyinstaller
-$ pyinstaller -F -w --add-data "logo.png;." cmdb-xlsx2csv.py
-$ pyinstaller --upx-dir c:\upx424 -F -w --add-data "logo.png;." cmdb-xlsx2csv.py
+pip install pyinstaller
+pyinstaller -F -w --add-data "logo.png;." cmdb-xlsx2csv.py
+pyinstaller --upx-dir c:\upx424 -F -w --add-data "logo.png;." cmdb-xlsx2csv.py
+```
+
+## TroubleShooting
+
+- 윈도우가 아닌 리눅스에서 PySide6로 실행시켰는데 에러가 나는 경우
+
+```sh
+# Debian/Ubuntu 기반
+sudo apt-get install libxcb-cursor0
+
+# RHEL/CentOS/RockyOS/Fedora 기반
+sudo dnf install xcb-util-cursor
 ```

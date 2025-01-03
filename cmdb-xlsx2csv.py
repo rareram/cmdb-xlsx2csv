@@ -1,7 +1,7 @@
 import sys
-from PyQt5.QtWidgets import (QApplication, QMainWindow, QLabel, QComboBox, QVBoxLayout, QHBoxLayout, QWidget, QTextEdit, QFrame)
-from PyQt5.QtCore import Qt, QPoint
-from PyQt5.QtGui import QFont, QPainter, QColor, QPixmap
+from PySide6.QtWidgets import (QApplication, QMainWindow, QLabel, QComboBox, QVBoxLayout, QHBoxLayout, QWidget, QTextEdit, QFrame)
+from PySide6.QtCore import Qt, QPoint
+from PySide6.QtGui import QFont, QPainter, QColor, QPixmap
 import pandas as pd
 import os
 import re
@@ -81,7 +81,7 @@ class MainWindow(QMainWindow):
 
     def paintEvent(self, event):
         painter = QPainter(self)
-        painter.setRenderHint(QPainter.Antialiasing)
+        painter.setRenderHint(QPainter.RenderHint.Antialiasing)
 
         font = QFont("맑은 고딕", 25, QFont.Bold)
         painter.setFont(font)
@@ -93,7 +93,7 @@ class MainWindow(QMainWindow):
         frame_rect = self.drop_frame.geometry()
 
         for i, text in enumerate(texts):
-            text_width = fm.width(text)
+            text_width = fm.horizontalAdvance(text)
             x = frame_rect.x() + (frame_rect.width() - text_width) / 2
             y = frame_rect.y() + (frame_rect.height() - total_height) / 2 + fm.height() * i
             painter.drawText(QPoint(int(x), int(y + fm.height())), text)
