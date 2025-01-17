@@ -44,7 +44,8 @@ class MainWindow(QMainWindow):
         # logo
         try:
             logo_label = QLabel()
-            logo_pixmap = QPixmap("logo.png")
+            logo_path = os.path.join(os.path.dirname(__file__), "logo.png")
+            logo_pixmap = QPixmap(logo_path)
             if not logo_pixmap.isNull():
                 logo_label.setPixmap(logo_pixmap)
                 logo_label.setFixedSize(70, 34)
@@ -132,7 +133,7 @@ class MainWindow(QMainWindow):
         try:
             # Sheet1만 읽기
             self.log_message(f"변환 시작: {os.path.basename(excel_path)}")
-            df = pd.read_excel(excel_path, sheet_name="Sheet1")
+            df = pd.read_excel(excel_path, sheet_name="Sheet1", header=2)   # 3행이 헤더칼럼
             self.log_message("Excel 파일 로드 완료")
 
             # 2행까지 삭제
